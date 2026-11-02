@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>國小五年級社會素養互動檢測：大航海時代的臺灣時空偵探</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;900&display=swap');
+    body {
+      font-family: 'Noto Sans TC', sans-serif;
+    }
+  </style>
+</head>
+<body class="bg-amber-50/50 text-slate-800 min-h-screen pb-16">
+
+  <!-- Header -->
+  <header class="bg-amber-700 text-white shadow-md relative overflow-hidden">
+    <div class="absolute -right-10 -bottom-10 opacity-10 text-9xl pointer-events-none">
+      <i class="fa-solid fa-ship"></i>
+    </div>
+    <div class="max-w-4xl mx-auto px-4 py-6 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+      <div>
+        <span class="bg-amber-900 text-amber-200 text-xs px-3 py-1 rounded-full font-bold tracking-wide">國小五年級．社會領域</span>
+        <h1 class="text-2xl sm:text-3xl font-black mt-1.5 flex items-center gap-2">
+          <i class="fa-solid fa-compass text-amber-300"></i> 大航海時代的臺灣時空偵探
+        </h1>
+      </div>
+      <div class="bg-amber-800/80 backdrop-blur border border-amber-600 px-3.5 py-2 rounded-xl text-right">
+        <p class="text-amber-100 text-xs font-medium">單元：17世紀多元族群的交會</p>
+        <p class="text-amber-300 text-xs font-bold mt-0.5"><i class="fa-solid fa-scroll mr-1"></i>素養導向檢測學習單</p>
+      </div>
+    </div>
+  </header>
+
+  <main class="max-w-4xl mx-auto px-4 mt-8 space-y-8">
+
+    <!-- 學生資訊列 -->
+    <div class="bg-white rounded-2xl p-4 shadow-sm border border-amber-200/80 flex flex-wrap items-center justify-between gap-4">
+      <div class="flex items-center gap-2 text-amber-900 font-bold text-sm">
+        <i class="fa-solid fa-user-astronaut text-amber-600 text-lg"></i>
+        <span>時空偵探個人資料：</span>
+      </div>
+      <div class="flex flex-wrap items-center gap-3 text-sm">
+        <input type="text" placeholder="班級 (如:501)" class="w-24 px-3 py-1.5 border border-slate-300 rounded-lg focus:ring-2 focus:ring-amber-500 focus:outline-none">
+        <input type="text" placeholder="座號" class="w-16 px-3 py-1.5 border border-slate-300 rounded-lg focus:ring-2 focus:ring-amber-500 focus:outline-none">
+        <input type="text" placeholder="偵探姓名" class="w-32 px-3 py-1.5 border border-slate-300 rounded-lg focus:ring-2 focus:ring-amber-500 focus:outline-none">
+      </div>
+    </div>
+
+    <!-- 測驗表單 -->
+    <form id="historyForm" onsubmit="event.preventDefault(); submitQuiz();" class="space-y-8">
+
+      <!-- 第一關：日常生活中的歷史密碼 -->
+      <section class="bg-white rounded-2xl shadow-sm border border-amber-200/80 p-6 space-y-6">
+        <div class="flex items-center justify-between border-b border-slate-100 pb-4">
+          <div class="flex items-center gap-3">
+            <span class="w-9 h-9 rounded-xl bg-amber-100 text-amber-800 flex items-center justify-center font-black text-lg">1</span>
+            <div>
+              <h2 class="text-lg font-bold text-slate-800">第一關：日常生活中的歷史密碼</h2>
+              <p class="text-xs text-slate-500">生活實用性（Utility）對應測試</p>
+            </div>
+          </div>
+          <span class="text-xs font-bold px-2.5 py-1 bg-amber-50 text-amber-700 rounded-lg border border-amber-200">配分：30分</span>
+        </div>
+
+        <!-- 1.1 飲食題 -->
+        <div class="space-y-3 bg-amber-50/40 p-4 rounded-xl border border-amber-100">
+          <h3 class="font-bold text-slate-800 text-sm leading-relaxed flex items-center gap-2">
+            <i class="fa-solid fa-utensils text-amber-600"></i>
+            1.1 飲食追追追：高麗菜、番茄、土芒果是我們常見的食物，請問它們是在哪一個世紀、透過誰引進臺灣的？
+          </h3>
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-2">
+            <div>
+              <label class="block text-xs font-bold text-slate-600 mb-1">世紀：</label>
+              <select id="q1_century" class="w-full p-2.5 text-sm border border-slate-300 rounded-xl focus:ring-2 focus:ring-amber-500 bg-white">
+                <option value="">請選擇世紀...</option>
+                <option value="15">15 世紀</option>
+                <option value="17">17 世紀</option>
+                <option value="19">19 世紀</option>
+              </select>
+            </div>
+            <div>
+              <label class="block text-xs font-bold text-slate-600 mb-1">歷史時代：</label>
+              <select id="q1_era" class="w-full p-2.5 text-sm border border-slate-300 rounded-xl focus:ring-2 focus:ring-amber-500 bg-white">
+                <option value="">請選擇時代...</option>
+                <option value="清領時期">清領時期</option>
+                <option value="大航海時代">大航海時代</option>
+                <option value="日治時期">日治時期</option>
+              </select>
+            </div>
+            <div>
+              <label class="block text-xs font-bold text-slate-600 mb-1">引進對象：</label>
+              <select id="q1_who" class="w-full p-2.5 text-sm border border-slate-300 rounded-xl focus:ring-2 focus:ring-amber-500 bg-white">
+                <option value="">請選擇對象...</option>
+                <option value="荷蘭人">荷蘭人 / 西班牙人</option>
+                <option value="日本軍隊">日本軍隊</option>
+                <option value="美國商人">美國商人</option>
+              </select>
+            </div>
+          </div>
+          <div id="fb-q1-1" class="hidden text-xs p-3 rounded-lg mt-2"></div>
+        </div>
+
+        <!-- 1.2 地名連連看 -->
+        <div class="space-y-3">
+          <h3 class="font-bold text-slate-800 text-sm leading-relaxed flex items-center gap-2">
+            <i class="fa-solid fa-map-location-dot text-amber-600"></i>
+            1.2 地名解碼大挑戰：請將下列地名選擇對應的語言起源由來：
+          </h3>
+
+          <div class="space-y-2.5">
+            <div class="flex flex-col sm:flex-row sm:items-center justify-between p-3 bg-slate-50 rounded-xl border border-slate-200 gap-2">
+              <span class="font-bold text-slate-700 text-sm">📍 三貂角（新北貢寮）</span>
+              <select id="geo_sandiego" class="p-2 text-xs border border-slate-300 rounded-lg focus:ring-2 focus:ring-amber-500 bg-white">
+                <option value="">選擇地名起源...</option>
+                <option value="spain">來自西班牙語「San Diego」（聖地牙哥）</option>
+                <option value="dutch">來自荷蘭語「Hoek」（意為海角）</option>
+                <option value="siraya">來自平埔族 Siraya 的社名音譯</option>
+              </select>
+            </div>
+
+            <div class="flex flex-col sm:flex-row sm:items-center justify-between p-3 bg-slate-50 rounded-xl border border-slate-200 gap-2">
+              <span class="font-bold text-slate-700 text-sm">📍 富貴角（新北石門）</span>
+              <select id="geo_hoek" class="p-2 text-xs border border-slate-300 rounded-lg focus:ring-2 focus:ring-amber-500 bg-white">
+                <option value="">選擇地名起源...</option>
+                <option value="spain">來自西班牙語「San Diego」（聖地牙哥）</option>
+                <option value="dutch">來自荷蘭語「Hoek」（意為海角）</option>
+                <option value="siraya">來自平埔族 Siraya 的社名音譯</option>
+              </select>
+            </div>
+
+            <div class="flex flex-col sm:flex-row sm:items-center justify-between p-3 bg-slate-50 rounded-xl border border-slate-200 gap-2">
+              <span class="font-bold text-slate-700 text-sm">📍 赤崁（臺南中西區）</span>
+              <select id="geo_chikan" class="p-2 text-xs border border-slate-300 rounded-lg focus:ring-2 focus:ring-amber-500 bg-white">
+                <option value="">選擇地名起源...</option>
+                <option value="spain">來自西班牙語「San Diego」（聖地牙哥）</option>
+                <option value="dutch">來自荷蘭語「Hoek」（意為海角）</option>
+                <option value="siraya">來自平埔族 Siraya 的社名音譯</option>
+              </select>
+            </div>
+          </div>
+          <div id="fb-q1-2" class="hidden text-xs p-3 rounded-lg mt-2"></div>
+        </div>
+      </section>
+
+      <!-- 第二關：多重史觀大法庭 -->
+      <section class="bg-white rounded-2xl shadow-sm border border-amber-200/80 p-6 space-y-6">
+        <div class="flex items-center justify-between border-b border-slate-100 pb-4">
+          <div class="flex items-center gap-3">
+            <span class="w-9 h-9 rounded-xl bg-amber-100 text-amber-800 flex items-center justify-center font-black text-lg">2</span>
+            <div>
+              <h2 class="text-lg font-bold text-slate-800">第二關：多重史觀大法庭</h2>
+              <p class="text-xs text-slate-500">真實性與換位思考（Validity & Perspective）</p>
+            </div>
+          </div>
+          <span class="text-xs font-bold px-2.5 py-1 bg-amber-50 text-amber-700 rounded-lg border border-amber-200">配分：30分</span>
+        </div>
+
+        <div class="bg-slate-50 p-4 rounded-xl border border-slate-200 space-y-2">
+          <p class="text-xs text-slate-600 leading-relaxed">
+            <strong>歷史情境：</strong>17世紀大航海時代，當荷蘭東印度公司宣布要對在臺灣交易的「鹿皮」課徵高額稅金時，不同族群利益產生了衝突。
+          </p>
+        </div>
+
+        <div class="space-y-4">
+          <label class="block text-sm font-bold text-slate-800">
+            步驟 1：請選擇你要扮演的歷史角色：
+          </label>
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+            <label class="role-card flex flex-col p-4 rounded-xl border-2 border-slate-200 hover:border-amber-400 cursor-pointer transition text-center bg-white">
+              <input type="radio" name="role" value="dutch" onclick="selectRole('dutch')" class="sr-only">
+              <i class="fa-solid fa-crown text-2xl text-amber-600 mb-2"></i>
+              <span class="font-bold text-sm text-slate-800">荷蘭東印度公司官員</span>
+              <span class="text-[11px] text-slate-500 mt-1">主張維持貿易壟斷與課稅權</span>
+            </label>
+            <label class="role-card flex flex-col p-4 rounded-xl border-2 border-slate-200 hover:border-amber-400 cursor-pointer transition text-center bg-white">
+              <input type="radio" name="role" value="indigenous" onclick="selectRole('indigenous')" class="sr-only">
+              <i class="fa-solid fa-person-hunting text-2xl text-emerald-600 mb-2"></i>
+              <span class="font-bold text-sm text-slate-800">新港社平埔族獵人</span>
+              <span class="text-[11px] text-slate-500 mt-1">主張獵場傳統與生活生存權</span>
+            </label>
+            <label class="role-card flex flex-col p-4 rounded-xl border-2 border-slate-200 hover:border-amber-400 cursor-pointer transition text-center bg-white">
+              <input type="radio" name="role" value="japanese" onclick="selectRole('japanese')" class="sr-only">
+              <i class="fa-solid fa-ship text-2xl text-blue-600 mb-2"></i>
+              <span class="font-bold text-sm text-slate-800">日本商人（如濱田彌兵衛）</span>
+              <span class="text-[11px] text-slate-500 mt-1">主張自由貿易反對強加關稅</span>
+            </label>
+          </div>
+
+          <div class="space-y-3 pt-2">
+            <label class="block text-sm font-bold text-slate-800">
+              步驟 2：請以該角色的立場，寫出你的主張與理由：
+            </label>
+            <textarea id="q2_reason" rows="3" class="w-full p-3 text-sm border border-slate-300 rounded-xl focus:ring-2 focus:ring-amber-500" placeholder="例如：我是荷蘭官員，我認為課稅是合理的，因為我們在臺灣建立要塞並維持安全秩序..."></textarea>
+          </div>
+        </div>
+        <div id="fb-q2" class="hidden text-xs p-4 rounded-xl bg-slate-50 border border-slate-200 space-y-1"></div>
+      </section>
+
+      <!-- 第三關：歷史素養小論文（CER 模式） -->
+      <section class="bg-white rounded-2xl shadow-sm border border-amber-200/80 p-6 space-y-6">
+        <div class="flex items-center justify-between border-b border-slate-100 pb-4">
+          <div class="flex items-center gap-3">
+            <span class="w-9 h-9 rounded-xl bg-amber-100 text-amber-800 flex items-center justify-center font-black text-lg">3</span>
+            <div>
+              <h2 class="text-lg font-bold text-slate-800">第三關：歷史素養小論文（CER 論證）</h2>
+              <p class="text-xs text-slate-500">自我充實與史料批判（Self-sufficiency & Evidence）</p>
+            </div>
+          </div>
+          <span class="text-xs font-bold px-2.5 py-1 bg-amber-50 text-amber-700 rounded-lg border border-amber-200">配分：40分</span>
+        </div>
+
+        <div class="bg-rose-50 border-l-4 border-rose-400 p-4 rounded-r-xl">
+          <h4 class="font-bold text-rose-900 text-sm mb-1"><i class="fa-solid fa-comment-dots mr-1.5"></i>小明的質疑觀點：</h4>
+          <p class="text-xs text-rose-800 leading-relaxed">
+            小明說：「臺灣的歷史就是從漢人渡海來臺開墾才開始的，在這之前臺灣只是一座無人的荒島。」
+          </p>
+        </div>
+
+        <div class="space-y-4">
+          <div class="space-y-2">
+            <label class="block text-sm font-bold text-slate-800">1. 主張（Claim）：你同意小明的說法嗎？</label>
+            <div class="flex gap-4">
+              <label class="flex items-center gap-2 cursor-pointer text-sm">
+                <input type="radio" name="cer_claim" value="disagree" class="w-4 h-4 text-amber-600 focus:ring-amber-500" checked>
+                <span class="font-bold text-emerald-700">不同意（小明的觀點不正確）</span>
+              </label>
+              <label class="flex items-center gap-2 cursor-pointer text-sm">
+                <input type="radio" name="cer_claim" value="agree" class="w-4 h-4 text-amber-600 focus:ring-amber-500">
+                <span class="font-bold text-rose-700">同意</span>
+              </label>
+            </div>
+          </div>
+
+          <div class="space-y-2">
+            <label class="block text-sm font-bold text-slate-800">
+              2. 歷史證據（Evidence）：請舉出課堂學到的史料或證據反駁或支持小明？
+            </label>
+            <textarea id="cer_evidence" rows="2" class="w-full p-3 text-sm border border-slate-300 rounded-xl focus:ring-2 focus:ring-amber-500" placeholder="提示：例如新港文書、原住民族（南島語族）生活遺跡、大航海時代地圖等..."></textarea>
+          </div>
+
+          <div class="space-y-2">
+            <label class="block text-sm font-bold text-slate-800">
+              3. 推理邏輯（Reasoning）：這個歷史證據如何證明小明是錯的或對的？
+            </label>
+            <textarea id="cer_reasoning" rows="2" class="w-full p-3 text-sm border border-slate-300 rounded-xl focus:ring-2 focus:ring-amber-500" placeholder="提示：說明這些證據代表原住民族早已在臺灣生活並發展出文明與契約文化..."></textarea>
+          </div>
+        </div>
+
+        <div id="fb-q3" class="hidden text-xs p-4 rounded-xl bg-slate-50 border border-slate-200 space-y-2"></div>
+      </section>
+
+      <!-- 提交按鈕 -->
+      <div class="flex justify-center pt-2">
+        <button type="submit" class="w-full sm:w-auto px-10 py-4 bg-amber-700 hover:bg-amber-800 text-white font-black text-base rounded-2xl shadow-xl hover:shadow-amber-200 transition-all transform active:scale-95 flex items-center justify-center gap-3">
+          <i class="fa-solid fa-stamp"></i> 提交歷史時空偵探學習單
+        </button>
+      </div>
+
+    </form>
+
+    <!-- 評分報告卡牌 -->
+    <div id="scoreModal" class="hidden bg-slate-900 text-white rounded-3xl p-6 sm:p-8 shadow-2xl space-y-6 border border-amber-500/30">
+      <div class="flex flex-wrap justify-between items-center border-b border-slate-800 pb-4 gap-2">
+        <div>
+          <span class="bg-amber-500/20 text-amber-300 text-xs px-3 py-1 rounded-full border border-amber-500/30 font-bold">歷史素養學習成就</span>
+          <h3 class="text-2xl font-black text-white mt-1 flex items-center gap-2">
+            <i class="fa-solid fa-award text-amber-400"></i> 時空偵探評測報告
+          </h3>
+        </div>
+        <span id="totalScoreTag" class="text-3xl font-black text-amber-400">-- / 100 分</span>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+        <div class="bg-slate-800/80 p-4 rounded-2xl border border-slate-700 text-center">
+          <p class="text-xs text-slate-400">第一關：生活實用連結</p>
+          <p id="scoreP1" class="text-xl font-black text-amber-400 mt-1">-</p>
+        </div>
+        <div class="bg-slate-800/80 p-4 rounded-2xl border border-slate-700 text-center">
+          <p class="text-xs text-slate-400">第二關：多重史觀換位</p>
+          <p id="scoreP2" class="text-xl font-black text-amber-400 mt-1">-</p>
+        </div>
+        <div class="bg-slate-800/80 p-4 rounded-2xl border border-slate-700 text-center">
+          <p class="text-xs text-slate-400">第三關：CER 歷史論證</p>
+          <p id="scoreP3" class="text-xl font-black text-amber-400 mt-1">-</p>
+        </div>
+      </div>
+
+      <div id="rubricSummary" class="bg-slate-800/50 p-4 rounded-2xl border border-slate-700 text-sm leading-relaxed text-slate-200">
+        <!-- 綜合點評 -->
+      </div>
+    </div>
+
+  </main>
+
+  <script>
+    let selectedRoleValue = '';
+
+    function selectRole(role) {
+      selectedRoleValue = role;
+      document.querySelectorAll('.role-card').forEach(card => {
+        card.classList.remove('border-amber-600', 'bg-amber-50/50', 'ring-2', 'ring-amber-500');
+      });
+      const targetInput = document.querySelector(`input[name="role"][value="${role}"]`);
+      if (targetInput) {
+        targetInput.checked = true;
+        const parentLabel = targetInput.closest('label');
+        parentLabel.classList.add('border-amber-600', 'bg-amber-50/50', 'ring-2', 'ring-amber-500');
+      }
+    }
+
+    function submitQuiz() {
+      let p1 = 0, p2 = 0, p3 = 0;
+
+      // --- 第一關 評分 ---
+      const c = document.getElementById('q1_century').value;
+      const era = document.getElementById('q1_era').value;
+      const who = document.getElementById('q1_who').value;
+      
+      const geo1 = document.getElementById('geo_sandiego').value;
+      const geo2 = document.getElementById('geo_hoek').value;
+      const geo3 = document.getElementById('geo_chikan').value;
+
+      let p1_1 = 0;
+      if (c === '17' && era === '大航海時代' && who === '荷蘭人') p1_1 = 15;
+      else if (c === '17' || era === '大航海時代') p1_1 = 8;
+
+      let p1_2 = 0;
+      if (geo1 === 'spain') p1_2 += 5;
+      if (geo2 === 'dutch') p1_2 += 5;
+      if (geo3 === 'siraya') p1_2 += 5;
+
+      p1 = p1_1 + p1_2;
+
+      const fb1_1 = document.getElementById('fb-q1-1');
+      fb1_1.classList.remove('hidden', 'bg-green-100', 'text-green-800', 'bg-red-100', 'text-red-800');
+      if (p1_1 === 15) {
+        fb1_1.classList.add('bg-green-100', 'text-green-800');
+        fb1_1.innerHTML = '✓ <strong>完全正確！</strong> 高麗菜與番茄等作物是在17世紀大航海時代由荷蘭人/西班牙人帶入臺灣。';
+      } else {
+        fb1_1.classList.add('bg-red-100', 'text-red-800');
+        fb1_1.innerHTML = '✗ <strong>解答：</strong> 正確為「17世紀」、「大航海時代」、由「荷蘭人/西班牙人」引進。';
+      }
+
+      const fb1_2 = document.getElementById('fb-q1-2');
+      fb1_2.classList.remove('hidden', 'bg-green-100', 'text-green-800', 'bg-amber-100', 'text-amber-800');
+      if (p1_2 === 15) {
+        fb1_2.classList.add('bg-green-100', 'text-green-800');
+        fb1_2.innerHTML = '✓ <strong>地名解碼全對！</strong> 三貂角(San Diego)、富貴角(Hoek)、赤崁(Siraya平埔族語)。';
+      } else {
+        fb1_2.classList.add('bg-amber-100', 'text-amber-800');
+        fb1_2.innerHTML = `⚠️ <strong>地名部分正確 (得 ${p1_2}/15 分)：</strong> 正確解答為：三貂角→西班牙語、富貴角→荷蘭語、赤崁→平埔族語。`;
+      }
+
+      // --- 第二關 評分 ---
+      const q2Text = document.getElementById('q2_reason').value.trim();
+      const fb2 = document.getElementById('fb-q2');
+      fb2.classList.remove('hidden');
+
+      if (selectedRoleValue && q2Text.length >= 10) {
+        p2 = 30;
+        fb2.innerHTML = `
+          <p class="font-bold text-green-700"><i class="fa-solid fa-circle-check mr-1"></i>角色立場寫作優秀 (+30分)</p>
+          <p class="text-slate-600">你成功站在歷史角色的觀點進行換位思考，展現多重史觀的真實性關懷！</p>
+        `;
+      } else if (selectedRoleValue || q2Text.length > 0) {
+        p2 = 15;
+        fb2.innerHTML = `
+          <p class="font-bold text-amber-700"><i class="fa-solid fa-triangle-exclamation mr-1"></i>內容較為簡略 (得 ${p2}/30分)</p>
+          <p class="text-slate-600">請記得選擇角色並詳細說明「主張」與「理由」（至少10字）。</p>
+        `;
+      } else {
+        p2 = 0;
+        fb2.innerHTML = `<p class="font-bold text-red-700">未完成第二關角色立場填寫 (0分)</p>`;
+      }
+
+      // --- 第三關 CER 評分 ---
+      const claimVal = document.querySelector('input[name="cer_claim"]:checked')?.value;
+      const evText = document.getElementById('cer_evidence').value.trim();
+      const reText = document.getElementById('cer_reasoning').value.trim();
+      const fb3 = document.getElementById('fb-q3');
+      fb3.classList.remove('hidden');
+
+      let claimScore = (claimVal === 'disagree') ? 10 : 0;
+      let evScore = 0;
+      let reScore = 0;
+
+      // 關鍵字匹配
+      if (evText.includes('新港文書') || evText.includes('原住民族') || evText.includes('平埔族') || evText.includes('南島') || evText.includes('遺跡') || evText.includes('契約')) {
+        evScore = 15;
+      } else if (evText.length > 5) {
+        evScore = 8;
+      }
+
+      if (reText.includes('早就') || reText.includes('生活') || reText.includes('文化') || reText.includes('文字') || reText.includes('荒島') || reText.includes('主人')) {
+        reScore = 15;
+      } else if (reText.length > 5) {
+        reScore = 8;
+      }
+
+      p3 = claimScore + evScore + reScore;
+
+      fb3.innerHTML = `
+        <div class="font-bold text-slate-800">📜 CER 歷史論證評分結果（得分：${p3} / 40分）：</div>
+        <div class="text-slate-600 space-y-1">
+          <p>• <strong>主張 (Claim)：</strong> ${claimVal === 'disagree' ? '<span class="text-green-600 font-bold">正確 (+10分)</span> 正確表達不同意小明的單一視角。' : '<span class="text-red-600">需修正</span> 小明的觀點忽略了臺灣原住民族的長期居住史。'}</p>
+          <p>• <strong>歷史證據 (Evidence)：</strong> ${evScore === 15 ? '<span class="text-green-600 font-bold">精確 (+15分)</span> 舉出了新港文書或原住民族等關鍵史料！' : '建議寫出「新港文書」或「南島語族生活遺跡」作為具體證據。'}</p>
+          <p>• <strong>推理邏輯 (Reasoning)：</strong> ${reScore === 15 ? '<span class="text-green-600 font-bold">嚴謹 (+15分)</span> 邏輯清楚說明原住民族早已發展出文明，臺灣絕非荒島！' : '建議說明「這些史料證明漢人來臺前，原住民族早已是這塊土地的主人」。'}</p>
+        </div>
+      `;
+
+      // 總分計算與展示
+      const totalScore = p1 + p2 + p3;
+      document.getElementById('scoreModal').classList.remove('hidden');
+      document.getElementById('totalScoreTag').innerText = `${totalScore} / 100 分`;
+      document.getElementById('scoreP1').innerText = `${p1} / 30 分`;
+      document.getElementById('scoreP2').innerText = `${p2} / 30 分`;
+      document.getElementById('scoreP3').innerText = `${p3} / 40 分`;
+
+      const summary = document.getElementById('rubricSummary');
+      if (totalScore >= 85) {
+        summary.innerHTML = '🏆 <strong>極優秀的歷史素養！</strong> 你具備敏銳的歷史偵探洞察力，不僅精通大航海時代的日常生活知識，還能運用史料進行多重史觀換位與批判論證！';
+      } else if (totalScore >= 60) {
+        summary.innerHTML = '👍 <strong>表現良好！</strong> 你對臺灣大航海時代有基礎理解，建議在 CER 寫作中多運用「新港文書」等具體史料證據加強論證力。';
+      } else {
+        summary.innerHTML = '💪 <strong>繼續努力！</strong> 請多複習大航海時代原住民族與荷蘭人的互動史，並試著從多方立場思考歷史事件。';
+      }
+
+      document.getElementById('scoreModal').scrollIntoView({ behavior: 'smooth' });
+    }
+  </script>
+</body>
+</html>
